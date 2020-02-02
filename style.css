@@ -17,6 +17,11 @@
   src: url(pitch-sans-test-semibold-italic.woff) format('woff');
 }
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   text-rendering: optimizeLegibility;
   font-family: Attila Sans;
