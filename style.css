@@ -18,12 +18,14 @@
 }
 
 * {
+  -webkit-box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  text-rendering: optimizeLegibility;
   font-family: Attila Sans;
   font-size: 24px;
   line-height: 1.2;
