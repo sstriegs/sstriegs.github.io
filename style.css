@@ -1,0 +1,70 @@
+@font-face {
+  font-family: Attila Sans;
+  font-weight: 500;
+  src: url(attilasansuniformtrial-semibold.otf);
+}
+
+@font-face {
+  font-family: Pitch Sans;
+  font-weight: 500;
+  src: url(pitch-sans-test-semibold.woff);
+}
+
+@font-face {
+  font-family: Pitch Sans;
+  font-weight: 500;
+  font-style: italic;
+  src: url(pitch-sans-test-semibold-italic.woff);
+}
+
+body {
+  font-family: Attila Sans;
+  font-size: 24px;
+  line-height: 1.2;
+  background-color: #202020;
+  color: #f4f4f4;
+  margin: 40px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.description {
+  max-width: 800px;
+}
+
+.description p {
+  margin-bottom: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+}
+
+footer a {
+  margin-right: 10px;
+}
+
+footer p {
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #f4f4f4;
+  font-size: 12px;
+  font-family: Pitch Sans;
+}
+
+a:hover {
+  color: #98fff1ff;
+  font-style: italic;
+}
