@@ -1,20 +1,20 @@
 @font-face {
   font-family: Attila Sans;
   font-weight: 500;
-  src: url(attilasansuniformtrial-semibold.otf);
+  src: url(attilasansuniformtrial-semibold.otf) format('woff');
 }
 
 @font-face {
   font-family: Pitch Sans;
   font-weight: 500;
-  src: url(pitch-sans-test-semibold.woff);
+  src: url(pitch-sans-test-semibold.woff) format('woff');
 }
 
 @font-face {
   font-family: Pitch Sans;
   font-weight: 500;
   font-style: italic;
-  src: url(pitch-sans-test-semibold-italic.woff);
+  src: url(pitch-sans-test-semibold-italic.woff) format('woff');
 }
 
 body {
