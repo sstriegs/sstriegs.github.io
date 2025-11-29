@@ -18,6 +18,10 @@ function toggleDetails(row) {
     const detailsRow = row.nextElementSibling;
     if (detailsRow?.classList.contains('project-details')) {
         detailsRow.classList.toggle('show');
+        // Ensure links are moved on mobile when expanding
+        if (window.innerWidth <= 768) {
+            setTimeout(() => moveLinksToMobile(), 0);
+        }
     }
 }
 
@@ -115,8 +119,43 @@ function nextMedia() {
     updateLightboxContent();
 }
 
+// Move links below thumbnails on mobile
+function moveLinksToMobile() {
+    if (window.innerWidth <= 768) {
+        document.querySelectorAll('.project-row').forEach(row => {
+            const linksDiv = row.querySelector('.links');
+            const detailsRow = row.nextElementSibling;
+            
+            if (linksDiv && detailsRow?.classList.contains('project-details')) {
+                const projectDetailsContent = detailsRow.querySelector('.project-details-content');
+                const thumbnails = projectDetailsContent?.querySelector('.project-thumbnails');
+                
+                // Remove existing mobile links if any
+                const existingMobileLinks = projectDetailsContent?.querySelector('.links-mobile');
+                if (existingMobileLinks) {
+                    existingMobileLinks.remove();
+                }
+                
+                // Clone and move links after thumbnails (only if links exist and thumbnails exist)
+                if (thumbnails && linksDiv.innerHTML.trim()) {
+                    const mobileLinks = linksDiv.cloneNode(true);
+                    mobileLinks.classList.add('links-mobile');
+                    mobileLinks.classList.remove('links');
+                    thumbnails.parentNode.insertBefore(mobileLinks, thumbnails.nextSibling);
+                }
+            }
+        });
+    } else {
+        // Remove mobile links on desktop
+        document.querySelectorAll('.links-mobile').forEach(link => link.remove());
+    }
+}
+
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
+    // Move links to mobile position
+    moveLinksToMobile();
+    
     // Handle expanded rows
     document.querySelectorAll('.project-row.expanded').forEach(row => {
         const detailsRow = row.nextElementSibling;
@@ -156,6 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
             closeLightbox();
         }
     });
+
+    // Handle window resize to move links on mobile
+    window.addEventListener('resize', moveLinksToMobile);
 });
 
 // Update time

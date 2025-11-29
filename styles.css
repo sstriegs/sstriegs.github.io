@@ -342,9 +342,30 @@ footer {
     }
 
     .project-row > div.brand,
-    .project-row > div.role,
+    .project-row > div.role { 
+        display: none;
+    }
+
     .project-row > div.links { 
         display: none;
+    }
+
+    .project-details .links-mobile {
+        display: flex;
+        align-items: center;
+        padding: 12px 0 0 0;
+    }
+
+    .project-details .links-mobile a {
+        color: #e0e0e0;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        font-size: 13px;
+        line-height: 16px;
+        text-transform: uppercase;
+        font-family: 'Suisse Intl Mono', Courier, monospace;
+        transition: opacity 0.2s ease;
     }
 
     .project-description {
