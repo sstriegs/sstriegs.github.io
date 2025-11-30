@@ -66,15 +66,50 @@ header {
 .name {
     line-height: 1;
     grid-column: 1 / 4;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 0.2s forwards;
 }
 
 .bio {
     grid-column: 4 / 7;
+    line-height: 16px;
+}
+
+.bio p {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    opacity: 0;
+}
+
+.bio p:nth-child(1) {
+    animation: typing 0.4s steps(30, end) 0.1s forwards;
+}
+
+.bio p:nth-child(2) {
+    animation: typing 0.4s steps(35, end) 0.4s forwards;
+}
+
+.bio p:nth-child(3) {
+    animation: typing 0.4s steps(25, end) 0.8s forwards;
 }
 
 .contact {
     grid-column: 9 / 11;
     text-transform: uppercase;
+}
+
+.contact p {
+    opacity: 0;
+}
+
+.contact p:nth-child(1) {
+    animation: fadeIn 0.2s ease-out 1.4s forwards;
+}
+
+.contact p:nth-child(2) {
+    animation: fadeIn 0.2s ease-out 1.6s forwards;
 }
 
 .time-location {
@@ -85,12 +120,48 @@ header {
 }
 
 .time-location p {
+    opacity: 0;
+}
+
+.time-location .date {
+    animation: fadeIn 0.2s ease-out 1.6s forwards;
+}
+
+.time-location .time {
+    animation: fadeIn 0.2s ease-out 1.8s forwards;
+}
+
+.time-location .location {
+    animation: fadeIn 0.2s ease-out 2s forwards;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.time-location p {
     margin: 0;
     padding: 0;
-    width: auto;
     display: block;
     font-size: 13px;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .projects-section {
@@ -101,10 +172,11 @@ header {
 }
 
 .video-slideshow {
-    grid-column: 1 / 3;
-    padding: 32px 0;
+    grid-column: 1 / 4;
+    padding: 32px 16px 0 0;
+    opacity: 0;
+    animation: fadeIn 0.4s ease-out 2.4s forwards;
 }
-
 
 .slideshow-item {
     width: 100%;
@@ -119,9 +191,9 @@ header {
 
 .slideshow-filename {
     margin-top: 8px;
-    font-size: 11px;
-    line-height: 14px;
-    color: #666;
+    font-size: 10px;
+    line-height: 10px;
+    color: #696969;
     text-transform: uppercase;
     font-family: 'Suisse Intl Mono', Courier, monospace;
 }
@@ -167,11 +239,61 @@ header {
     grid-template-columns: repeat(9, 1fr);
     align-items: center;
     padding: 8px 0;
+    opacity: 0;
+    animation: fadeIn 0.2s ease-in-out forwards;
 }
 
-.project-row:hover {
-    background-color: #131313;
-    cursor: crosshair;
+/* Stagger the fade-in for each project row */
+.project-row:nth-child(1) {
+    animation-delay: 3s;
+}
+
+.project-row:nth-child(2) {
+    animation-delay: 3.1s;
+}
+
+.project-row:nth-child(3) {
+    animation-delay: 3.2s;
+}
+
+.project-row:nth-child(4) {
+    animation-delay: 3.3s;
+}
+
+.project-row:nth-child(5) {
+    animation-delay: 3.4s;
+}
+
+.project-row:nth-child(6) {
+    animation-delay: 3.5s;
+}
+
+.project-row:nth-child(7) {
+    animation-delay: 3.6s;
+}
+
+.project-row:nth-child(8) {
+    animation-delay: 3.7s;
+}
+
+.project-row:nth-child(9) {
+    animation-delay: 3.8s;
+}
+
+.project-row:nth-child(10) {
+    animation-delay: 3.9s;
+}
+
+.project-row:nth-child(n+11) {
+    animation-delay: 4s;
+}
+
+/* Only apply hover effects on devices that support hover */
+@media (hover: hover) {
+    .project-row:hover {
+        background-color: #131313;
+        cursor: crosshair;
+    }
 }
 
 .project-row > div {
@@ -283,6 +405,8 @@ footer {
 
 .table-controls {
     margin-bottom: 10px;
+    opacity: 0;
+    animation: fadeIn 0.2s ease-in 2.8s forwards;
 }
 
 .control-button {
@@ -306,7 +430,6 @@ footer {
     a:hover,
     .lightbox-arrow:hover,
     .lightbox-close:hover,
-    .project-row:hover,
     .control-button:hover {
         animation: none !important;
         border-bottom: none !important;

@@ -212,8 +212,9 @@ function initVideoSlideshow() {
     // Featured media files from images/featured folder
     // Supports videos (.mp4, .webm), GIFs (.gif), and static images (.png, .jpg, .jpeg)
     const featuredMedia = [
-        'images/featured/JUICE_puffy.mp4',
-        'images/featured/JUICE_hoodie.mp4',
+        'images/featured/3d_puffy_crt.mp4',
+        'images/featured/3d_hoodie_crt.mp4',
+        'images/featured/video_feed.gif',
         'images/featured/new_yorker_laugh_lines.mp4',
         'images/featured/video_feedback_01.mp4',
         'images/featured/video_feedback_03.mp4',
@@ -253,6 +254,7 @@ function initVideoSlideshow() {
         // Create appropriate element based on media type
         if (mediaType === 'video') {
             currentMedia = document.createElement('video');
+            currentMedia.preload = 'none'; // Don't preload video data
             currentMedia.autoplay = true;
             currentMedia.loop = true;
             currentMedia.muted = true;
@@ -266,6 +268,7 @@ function initVideoSlideshow() {
         } else {
             // Image (GIF or static)
             currentMedia = document.createElement('img');
+            currentMedia.loading = 'lazy'; // Lazy load images
             currentMedia.src = mediaPath;
         }
 
@@ -276,26 +279,25 @@ function initVideoSlideshow() {
             const filename = mediaPath.split('/').pop();
             slideshowFilename.textContent = filename;
         }
-
-        // Advance to next media on click/tap
-        currentMedia.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % featuredMedia.length;
-            showNextMedia();
-        });
-
-        // Also support touch events for mobile
-        currentMedia.addEventListener('touchend', (e) => {
-            e.preventDefault();
-            currentIndex = (currentIndex + 1) % featuredMedia.length;
-            showNextMedia();
-        });
     }
 
     // Show initial media (randomly selected)
     showNextMedia();
 }
 
-// Update time
+// Update date and time
+function updateDate() {
+    const dateElement = document.querySelector('.date');
+    if (dateElement) {
+        const now = new Date();
+        dateElement.textContent = now.toLocaleDateString('en-US', { 
+            weekday: 'long',
+            month: 'short',
+            day: 'numeric'
+        });
+    }
+}
+
 function updateTime() {
     const timeElement = document.querySelector('.time');
     if (timeElement) {
@@ -303,11 +305,16 @@ function updateTime() {
         timeElement.textContent = now.toLocaleTimeString('en-US', { 
             hour: 'numeric', 
             minute: '2-digit',
+            second: '2-digit',
             hour12: true 
         });
     }
 }
 
-// Update time immediately and then every minute
+// Update date and time immediately
+updateDate();
 updateTime();
-setInterval(updateTime, 60000);
+// Update date every minute (since it doesn't change every second)
+setInterval(updateDate, 60000);
+// Update time every second (to show seconds counting)
+setInterval(updateTime, 1000);
