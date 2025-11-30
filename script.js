@@ -212,8 +212,8 @@ function initVideoSlideshow() {
     // Featured media files from images/featured folder
     // Supports videos (.mp4, .webm), GIFs (.gif), and static images (.png, .jpg, .jpeg)
     const featuredMedia = [
-        'images/featured/3d_puffy_crt.mp4',
-        'images/featured/3d_hoodie_crt.mp4',
+        'images/featured/3D_hoodie_CRT.mp4',
+        'images/featured/3D_puffy_CRT.mp4',
         'images/featured/video_feed.gif',
         'images/featured/new_yorker_laugh_lines.mp4',
         'images/featured/video_feedback_01.mp4',
