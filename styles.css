@@ -315,7 +315,7 @@ footer {
 
     header {
         display: block;
-        margin-bottom: 2rem;
+        margin-bottom: 16px;
     }
 
     .name {
@@ -352,7 +352,7 @@ footer {
     }
 
     .table-controls {
-        text-align: right;
+        padding-top: 8px;
     }
 
     .projects-section {
@@ -375,6 +375,9 @@ footer {
         max-width: 100%;
     }
     
+    .slideshow-filename {
+        display: none;
+    }
 
     .projects-container {
         width: 100%;
