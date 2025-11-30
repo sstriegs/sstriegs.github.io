@@ -18,7 +18,13 @@
         </div>
         <div class="bio">
             <p>
-                Steven is a designer based in New York City. He's currently at Condé Nast designing apps and web experiences for large media brands like The New Yorker, Vogue, Wired, and others. Steven also experiments with analog art forms in video, collage, and photography.
+                Designer and artist based in NYC. 
+            </p>
+            <p>
+                Assoc. Design Director at Condé Nast.
+            </p>
+            <p>
+                Adjunct Instructor at NYU.
             </p>
         </div>
         <div class="contact">
@@ -35,17 +41,21 @@
         </div>
     </header>
     <section class="projects-section">
-        <div class="table-controls">
-            <button onclick="expandAll()" class="control-button">[Open All]</button>
-            <button onclick="collapseAll()" class="control-button">[Close All]</button>
+        <div class="video-slideshow">
+            <div class="slideshow-item"></div>
+            <div class="slideshow-filename"></div>
         </div>
-        <div class="projects-grid">
+        <div class="projects-container">
+            <div class="table-controls">
+                <button onclick="expandAll()" class="control-button">[Expand All]</button>
+                <button onclick="collapseAll()" class="control-button">[Close All]</button>
+            </div>
+            <div class="projects-grid">
             <div class="grid-header">
                 <div class="meta-text">Project</div>
                 <div class="meta-text">Brand</div>
                 <div class="meta-text">Role</div>
                 <div class="meta-text">Links</div>
-                <div class="year-header meta-text">Year</div>
             </div>
             <div class="grid-body">
                 <div class="project-row" onclick="toggleDetails(this)">
@@ -56,7 +66,6 @@
                     <div class="brand meta-text">The New Yorker</div>
                     <div class="role meta-text">Assoc. Design Director</div>
                     <div class="links"><a href="https://www.newyorker.com/laugh-lines" target="_blank" onclick="event.stopPropagation()">Play <span class="arrow">↗</span></a></div>
-                    <div class="year meta-text">2025</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -89,7 +98,6 @@
                     <div class="brand meta-text">The New Yorker</div>
                     <div class="role meta-text">Assoc. Design Director</div>
                     <div class="links"><a href="https://www.newyorker.com/100" target="_blank" onclick="event.stopPropagation()">View <span class="arrow">↗</span></a></div>
-                    <div class="year meta-text">2025</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -120,7 +128,6 @@
                     <div class="brand meta-text">The New Yorker</div>
                     <div class="role meta-text">Assoc. Design Director</div>
                     <div class="links"><a href="https://apps.apple.com/us/app/the-new-yorker/id1234567890" target="_blank" onclick="event.stopPropagation()">Download app <span class="arrow">↗</span></a></div>
-                    <div class="year meta-text">2024</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -150,7 +157,6 @@
                     <div class="brand meta-text">Vogue</div>
                     <div class="role meta-text">Product Design Lead</div>
                     <div class="links"><a href="https://apps.apple.com/us/app/vogue-runway/id1234567890" target="_blank" onclick="event.stopPropagation()">Download app <span class="arrow">↗</span></a></div>
-                    <div class="year meta-text">2024</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -180,7 +186,6 @@
                     <div class="brand meta-text">The New Yorker</div>
                     <div class="role meta-text">Product Design Lead</div>
                     <div class="links"><a href="https://www.newyorker.com/podcast/in-the-dark/the-war-crimes-that-the-military-buried" target="_blank" onclick="event.stopPropagation()">Read the story <span class="arrow">↗</span></a></div>
-                    <div class="year meta-text">2024</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -209,7 +214,6 @@
                     <div class="brand meta-text">JUICE</div>
                     <div class="role meta-text">Freelance Designer</div>
                     <div class="links"></div>
-                    <div class="year meta-text">2023</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -264,7 +268,6 @@
                     <div class="brand meta-text">The New Yorker</div>
                     <div class="role meta-text">Product Design Lead</div>
                     <div class="links"><a href="https://www.newyorker.com/news/news-desk/a-new-home-for-audio-in-the-new-yorker-app" target="_blank" onclick="event.stopPropagation()">Read announcement <span class="arrow">↗</span></a></div>
-                    <div class="year meta-text">2022</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -289,7 +292,6 @@
                     <div class="brand meta-text">The New Yorker</div>
                     <div class="role meta-text">Product Design Lead</div>
                     <div class="links"><a href="https://www.newyorker.com/news/news-desk/the-new-yorker-app-is-now-available-on-android" target="_blank" onclick="event.stopPropagation()">Read announcement<span class="arrow">↗</span></a></div>
-                    <div class="year meta-text">2022</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -320,7 +322,6 @@
                     </div>
                     <div class="brand meta-text">Mux</div>
                     <div class="role meta-text">Senior Product Designer</div>
-                    <div class="year meta-text">2020</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -348,7 +349,6 @@
                     <div class="brand meta-text">Mux</div>
                     <div class="role meta-text">Senior Product Designer</div>
                     <div class="links"><a href="https://stream.new" target="_blank" onclick="event.stopPropagation()">View <span class="arrow">↗</span></a></div>
-                    <div class="year meta-text">2020</div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
@@ -366,6 +366,7 @@
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 

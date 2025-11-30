@@ -198,7 +198,102 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle window resize to move links on mobile
     window.addEventListener('resize', moveLinksToMobile);
+
+    // Initialize video slideshow
+    initVideoSlideshow();
 });
+
+// Video slideshow functionality
+function initVideoSlideshow() {
+    const slideshowItem = document.querySelector('.slideshow-item');
+    const slideshowFilename = document.querySelector('.slideshow-filename');
+    if (!slideshowItem) return;
+
+    // Featured media files from images/featured folder
+    // Supports videos (.mp4, .webm), GIFs (.gif), and static images (.png, .jpg, .jpeg)
+    const featuredMedia = [
+        'images/featured/JUICE_puffy.mp4',
+        'images/featured/JUICE_hoodie.mp4',
+        'images/featured/new_yorker_laugh_lines.mp4',
+        'images/featured/video_feedback_01.mp4',
+        'images/featured/video_feedback_03.mp4',
+        'images/featured/video_feedback_profile.mp4',
+    ];
+
+    if (featuredMedia.length === 0) return;
+
+    // Randomly select a starting media item on each page load
+    let currentIndex = Math.floor(Math.random() * featuredMedia.length);
+    let currentMedia = null;
+
+    // Helper function to detect media type
+    function getMediaType(filePath) {
+        const extension = filePath.split('.').pop().toLowerCase();
+        if (['mp4', 'webm', 'mov'].includes(extension)) {
+            return 'video';
+        } else if (['gif', 'png', 'jpg', 'jpeg', 'webp', 'svg'].includes(extension)) {
+            return 'image';
+        }
+        return 'image'; // Default to image
+    }
+
+    function showNextMedia() {
+        // Remove current media if it exists
+        if (currentMedia) {
+            if (currentMedia.tagName === 'VIDEO') {
+                currentMedia.pause();
+            }
+            currentMedia.remove();
+            currentMedia = null;
+        }
+
+        const mediaPath = featuredMedia[currentIndex];
+        const mediaType = getMediaType(mediaPath);
+
+        // Create appropriate element based on media type
+        if (mediaType === 'video') {
+            currentMedia = document.createElement('video');
+            currentMedia.autoplay = true;
+            currentMedia.loop = true;
+            currentMedia.muted = true;
+            currentMedia.playsInline = true;
+
+            const source = document.createElement('source');
+            source.src = mediaPath;
+            const extension = mediaPath.split('.').pop().toLowerCase();
+            source.type = extension === 'webm' ? 'video/webm' : 'video/mp4';
+            currentMedia.appendChild(source);
+        } else {
+            // Image (GIF or static)
+            currentMedia = document.createElement('img');
+            currentMedia.src = mediaPath;
+        }
+
+        slideshowItem.appendChild(currentMedia);
+
+        // Update filename display
+        if (slideshowFilename) {
+            const filename = mediaPath.split('/').pop();
+            slideshowFilename.textContent = filename;
+        }
+
+        // Advance to next media on click/tap
+        currentMedia.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % featuredMedia.length;
+            showNextMedia();
+        });
+
+        // Also support touch events for mobile
+        currentMedia.addEventListener('touchend', (e) => {
+            e.preventDefault();
+            currentIndex = (currentIndex + 1) % featuredMedia.length;
+            showNextMedia();
+        });
+    }
+
+    // Show initial media (randomly selected)
+    showNextMedia();
+}
 
 // Update time
 function updateTime() {
