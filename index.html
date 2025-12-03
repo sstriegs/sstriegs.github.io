@@ -47,16 +47,18 @@
             <div class="slideshow-filename"></div>
         </div>
         <div class="projects-container">
-            <div class="table-controls">
-                <button onclick="expandAll()" class="control-button">[Expand All]</button>
-                <button onclick="collapseAll()" class="control-button">[Close All]</button>
-            </div>
             <div class="projects-grid">
             <div class="grid-header">
-                <div class="meta-text">Project</div>
-                <div class="meta-text">Brand</div>
-                <div class="meta-text">Role</div>
-                <div class="meta-text">Links</div>
+                <div class="meta-text grid-header-project">
+                    Project
+                    <div class="table-controls">
+                        <button onclick="expandAll()" class="control-button">[+ All]</button>
+                        <button onclick="collapseAll()" class="control-button">[– All]</button>
+                    </div>
+                </div>
+                <div class="meta-text grid-header-brand">Brand</div>
+                <div class="meta-text grid-header-role">Role</div>
+                <div class="meta-text grid-header-links">Links</div>
             </div>
             <div class="grid-body">
                 <div class="project-row" onclick="toggleDetails(this)">
@@ -85,6 +87,11 @@
                             <div class="project-thumbnail">
                                 <video autoplay loop muted playsinline preload="none">
                                     <source src="images/laugh-lines/laughlines-interaction-compressed.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="project-thumbnail">
+                                <video autoplay loop muted playsinline preload="none">
+                                    <source src="images/laugh-lines/newyorker-laughlines-social.mp4" type="video/mp4">
                                 </video>
                             </div>
                         </div>
@@ -157,13 +164,12 @@
                     </div>
                     <div class="brand meta-text">Vogue</div>
                     <div class="role meta-text">Product Design Lead</div>
-                    <div class="links"><a href="https://apps.apple.com/us/app/vogue-runway/id1234567890" target="_blank" onclick="event.stopPropagation()">Download app <span class="arrow">↗</span></a></div>
+                    <div class="links"><a href="https://apps.apple.com/us/app/vogue-fashion-shopping/id289380413" target="_blank" onclick="event.stopPropagation()">Download app <span class="arrow">↗</span></a></div>
                 </div>
                 <div class="project-details">
                     <div class="project-details-content">
                         <p class="project-description">
-                            I spent four months with the Vogue team to help redesign the Runway app from the ground up. Focus areas included: the home feed, quizzes/voting, notifications, and commenting.
-                        </p>
+                            Over four months, I helped redesign the Vogue Runway app from the ground up, designing core experiences including the home feed, onboarding, interactive quizzes and voting, notifications, and commenting.                        </p>
                         <div class="project-thumbnails">
                             <div class="project-thumbnail">
                             <video autoplay loop muted playsinline preload="none">
