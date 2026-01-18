@@ -665,7 +665,7 @@ footer {
 .lightbox-navigation-zone {
     position: absolute;
     top: 0;
-    height: 100%;
+    bottom: 60px;
     width: 50%;
     z-index: 1001;
 }
@@ -685,6 +685,12 @@ footer {
     max-width: 100%;
     max-height: 80vh;
     object-fit: contain;
+}
+
+.lightbox-content video[controls] {
+    z-index: 1002;
+    position: relative;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="24" viewBox="0 0 24 24" fill="white"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>'), auto;
 }
 
 .lightbox-close {

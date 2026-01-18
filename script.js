@@ -79,7 +79,6 @@ function updateLightboxContent() {
         clone.autoplay = true;
         clone.loop = true;
         clone.muted = true;
-        clone.controls = false;
     }
     
     lightboxContent.innerHTML = '';
@@ -96,6 +95,15 @@ function updateLightboxContent() {
     lightboxContent.appendChild(leftZone);
     lightboxContent.appendChild(clone);
     lightboxContent.appendChild(rightZone);
+    
+    // Enable controls only for the shuffalo social video (after DOM insertion)
+    if (clone.tagName === 'VIDEO') {
+        const originalSource = media.querySelector('source');
+        if (originalSource && originalSource.getAttribute('src').includes('newyorker-shuffalo-social.mp4')) {
+            clone.setAttribute('controls', '');
+            clone.controls = true;
+        }
+    }
     
     updateCounter();
 }
