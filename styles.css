@@ -761,7 +761,7 @@ footer {
 }
 
 .error-section {
-    margin-top: 40vh;
+    margin: 40vh 20px 0 20px;
 }
 
 .error-section p {
