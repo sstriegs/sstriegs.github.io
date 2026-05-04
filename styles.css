@@ -465,8 +465,12 @@ footer {
     }
 
     .bio {
-        margin-bottom: 12px;
-        
+        margin-bottom: 12px;        
+    }
+
+    .bio p:nth-child(2) {
+        display: block;
+        white-space: normal;
     }
     
     .contact {
