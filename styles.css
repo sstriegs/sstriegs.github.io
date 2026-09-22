@@ -168,11 +168,12 @@ header {
 }
 
 .projects-section {
+    --section-inline-padding: 1em;
     margin-top: 55vh;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     gap: 0;
-    padding: 1.2em 1em;
+    padding: 1.2em var(--section-inline-padding);
 }
 
 .video-slideshow {
@@ -346,6 +347,7 @@ header {
 
 .project-row.expanded + .project-details {
     display: block;
+    overflow: visible;
 }
 
 .project-details-content {
@@ -365,12 +367,23 @@ header {
 
 .project-thumbnails {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 12px;
+    width: calc(100% + var(--section-inline-padding));
+    margin-right: calc(-1 * var(--section-inline-padding));
     padding: 0 0 0 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.project-thumbnails::-webkit-scrollbar {
+    display: none;
 }
 
 .project-thumbnail {
+    flex-shrink: 0;
     max-height: 160px;
     overflow: hidden;
 }
@@ -597,13 +610,18 @@ footer {
     }
 
     .project-thumbnails {
-        padding-left: 0;
+        padding: 0;
         gap: 8px;
+    }
+
+    .project-thumbnail {
+        max-height: 340px;
     }
 
     .project-thumbnail img,
     .project-thumbnail video {
-        height: 100px;
+        max-height: 240px;
+        height: auto;
     }
 
     .project-details {
